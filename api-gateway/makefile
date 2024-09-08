@@ -14,7 +14,9 @@ run:
 rm:
 	@ docker stop ${CONTAINER_NAME}
 	@ docker rm ${CONTAINER_NAME}
-
+print-vars:
+    @echo "DOCKER_REGISTRY=${DOCKER_REGISTRY}"
+    @echo "DOCKER_USERNAME=${DOCKER_USERNAME}"
 docker-login:
 	@echo "Logging in to Docker..."
 	@echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY}
