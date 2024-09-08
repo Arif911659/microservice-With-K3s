@@ -33,7 +33,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Install Make (if needed)
+    - name: Install Make for Makefile #(if needed)
       run: |
           sudo apt update
           sudo apt install make -y
