@@ -20,7 +20,7 @@ docker-login:
 	@ echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY}
 	@ echo "Login successful!"
 
-push:
+push: build
 	@ if [ -z "${DOCKER_REGISTRY}" ]; then \
 	    echo "DOCKER_REGISTRY is not set. Using default (docker.io)"; \
 	    DOCKER_REGISTRY="docker.io"; \
