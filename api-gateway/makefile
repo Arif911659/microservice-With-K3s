@@ -15,18 +15,18 @@ rm:
 	@ docker stop ${CONTAINER_NAME}
 	@ docker rm ${CONTAINER_NAME}
 
-# docker-login:
-# 	@ echo "Logging in to Docker..."
-# 	@ echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY}
-# 	@ echo "Login successful!"
 docker-login:
 	@ echo "Logging in to Docker..."
 	@ echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY}
-	@ if [ $$? -ne 0 ]; then \
-        echo "Docker login failed"; \
-        exit 1; \
-    fi
 	@ echo "Login successful!"
+# docker-login:
+# 	@ echo "Logging in to Docker..."
+# 	@ echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY}
+# 	@ if [ $$? -ne 0 ]; then \
+#         echo "Docker login failed"; \
+#         exit 1; \
+#     fi
+# 	@ echo "Login successful!"
 
 push: build
 	@ if [ -z "${DOCKER_REGISTRY}" ]; then \
