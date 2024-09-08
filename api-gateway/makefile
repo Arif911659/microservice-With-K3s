@@ -20,7 +20,15 @@ docker-login:
 	@echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY}
 	@echo "Login successful!"
 
+# push:
+# 	@ docker tag ${IMAGE_NAME}:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
+# 	@ docker push ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
+# 	@ echo "Image pushed: ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}"
 push:
+	@ if [ -z "${DOCKER_REGISTRY}" ]; then \
+	    echo "DOCKER_REGISTRY is not set. Using default (docker.io)"; \
+	    DOCKER_REGISTRY="docker.io"; \
+	fi
 	@ docker tag ${IMAGE_NAME}:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
 	@ docker push ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
 	@ echo "Image pushed: ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}"
