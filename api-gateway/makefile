@@ -6,7 +6,7 @@ CONTAINER_NAME := api-gateway
 DOCKER_REGISTRY := docker.io
 DOCKER_USERNAME := arifhossain555
 DOCKER_PASSWORD := A2743H+211093||@sm@||
-
+SHELL := /bin/bash
 build:
 	@ docker build -t ${IMAGE_NAME}:${VERSION} .
 
