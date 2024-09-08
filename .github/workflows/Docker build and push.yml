@@ -37,9 +37,11 @@ jobs:
       run: |
           sudo apt update
           sudo apt install make -y
+
+    - name: Docker/Makefile Build
+      run: |
           cd api-gateway
           make build
-
     # - name: Docker Build
     #   run: |
     #       cd api-gateway
