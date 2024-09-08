@@ -47,4 +47,13 @@ jobs:
     #       cd api-gateway
     #       docker build -t api-gateway:v1.0 .
 #              #   Assuming your Docker build is triggered via a Makefile
-            
+ 
+    - name: Docker Login
+      run: |
+         cd api-gateway
+         make login
+  push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
