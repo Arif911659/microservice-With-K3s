@@ -4,7 +4,7 @@ HOST_PORT:=8000
 CONTAINER_PORT:=3000
 CONTAINER_NAME:=api-gateway
 DOCKER_REGISTRY:=docker.io
-
+DOCKER_USERNAME:=arifhossaincse22
 build:
 	@ docker build -t ${IMAGE_NAME}:${VERSION} .
 
