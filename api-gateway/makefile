@@ -4,6 +4,8 @@ HOST_PORT:=8000
 CONTAINER_PORT:=3000
 CONTAINER_NAME:=api-gateway
 
+DOCKER_REGISTRY:=docker.io
+
 build:
 	@ docker build -t ${IMAGE_NAME}:${VERSION} .
 
@@ -13,3 +15,8 @@ run:
 rm:
 	@ docker stop ${CONTAINER_NAME}
 	@ docker rm ${CONTAINER_NAME}
+
+docker-login:
+	@echo "Logging in to Docker..."
+	@echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY}
+	@echo "Login successful!"
