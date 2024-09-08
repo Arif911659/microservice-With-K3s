@@ -21,6 +21,6 @@ docker-login:
 	@echo "Login successful!"
 
 push:
-	@ docker tag ${IMAGE_NAME}:${VERSION} ${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
-	@ docker push ${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
-	@ echo "Image pushed: ${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}"
+	@ docker tag ${IMAGE_NAME}:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
+	@ docker push ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
+	@ echo "Image pushed: ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}"
