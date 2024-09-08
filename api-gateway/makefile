@@ -19,7 +19,6 @@ docker-login:
 	@echo "Logging in to Docker..."
 	@echo ${DOCKER_TOKEN} | docker login -u ${DOCKER_USERNAME} --password-stdin ${DOCKER_REGISTRY}
 	@echo "Login successful!"
-
 # push:
 # 	@ docker tag ${IMAGE_NAME}:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
 # 	@ docker push ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
@@ -32,8 +31,6 @@ push:
 	@ docker tag ${IMAGE_NAME}:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
 	@ docker push ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}
 	@ echo "Image pushed: ${DOCKER_REGISTRY}/${DOCKER_USERNAME}/${IMAGE_NAME}:${VERSION}"
-
-
 print-vars:
     @echo "DOCKER_REGISTRY=${DOCKER_REGISTRY}"
     @echo "DOCKER_USERNAME=${DOCKER_USERNAME}"
