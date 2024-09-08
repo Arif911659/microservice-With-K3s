@@ -55,7 +55,7 @@ jobs:
       env: 
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-        # DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
+        DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
   push:
     runs-on: ubuntu-latest
     needs: deploy
