@@ -51,7 +51,7 @@ jobs:
     - name: Docker Login
       run: |
          cd api-gateway
-         make login
+         make docker-login
       env: 
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
