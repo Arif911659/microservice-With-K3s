@@ -1,15 +1,4 @@
 const express = require('express');
-const router = express.Router();
-
-router.get('/Health-check', async (req, res) => {
-  res.status(200).json({ 'msg': 'server is working' });
-});
-
-module.exports = router;
-
-
-
-/* const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 const TODO_SERVICE_URL = process.env.TODO_SERVICE_URL;
@@ -54,4 +43,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router; */
+module.exports = router;
